@@ -15,16 +15,31 @@
     };
     
     struct matrix{
-        double** data; /** elements of the matrix [i][j]*/
+        double** data; /** elements m(i, j) of the matrix*/
         int rows;  /** number of rows in the matrix*/
         int cols; /** number of columns in the matrix */
     };
     
     struct tensor{
-        unsigned int rank; /** */
-        int* shape; /** */
-        int* stride; /** */
-        double* data; /** */
+        /** rank of tensor:
+         * rank 0 -> scalar
+         * rank 1 -> vector
+         * rank 2 -> matrix
+         * rank 3 ... n -> tensor
+         * */
+        unsigned int rank; 
+        /** 
+         * and the size of each dimension
+        */
+        int* shape; 
+        /** 
+         * the jump necessary to go from one element to the next one in the specified dimension
+        */
+        int* stride; 
+        /** 
+         * element t(i, j, ...) of the tensor
+        */
+        double* data; 
     };
     
     typedef double scalar_t;
